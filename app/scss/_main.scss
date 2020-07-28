@@ -1,0 +1,99 @@
+.main {
+    margin-top: toRem(40px);
+
+    &__cards {
+        @include breakpoint-up (large) {
+            display: grid;
+            //grid-template-columns: 1fr 1fr 1fr 1fr;
+            //grid-template-columns: toRem(370px) toRem(370px) toRem(370px);
+            grid-template-columns: min-content min-content min-content;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas: 
+                "supervisor team calculator"
+                "supervisor karma calculator"
+            ;
+            justify-items: center;
+            gap: 30px;
+        }
+    
+        @include breakpoint-down (medium) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__card {
+
+        @include breakpoint-down (medium) {
+            flex: 1 1 auto;
+            &:not(:first-child) {
+                margin-top: toRem(26px);
+            }
+        }
+        position: relative;
+        width: toRem(318px);
+        height: toRem(180px);
+        padding: 1rem;
+        text-align: left;
+        background-color: white;
+        border-radius: toRem(5px);
+        box-shadow: 0 toRem(3px) toRem(12px) rgba(0, 0, 0, 0.15);
+        
+
+        &__title {
+            font-weight: 600;
+        }
+
+
+        &__subtitle {
+            font-size: $font-xsm;
+        }
+
+
+        &__icon {
+            position: absolute;
+            bottom:toRem(26px);
+            right: toRem(28px);            
+        }
+    }
+
+    .cyan {
+        @include borderTopColor("cyan");
+
+        @include breakpoint-up (large) {
+            grid-area: supervisor;
+            align-self: center;
+            justify-self: end;
+        }
+    }
+
+    .red {
+        @include borderTopColor("red");
+
+        @include breakpoint-up (large) {
+            grid-area: team;
+        }
+    }
+
+    .orange {
+        @include borderTopColor("orange");
+
+        @include breakpoint-up (large) {
+            grid-area: karma;
+        }
+    }
+
+    .blue {
+        @include borderTopColor("blue");
+
+        @include breakpoint-up (large) {
+            grid-area: calculator;
+            align-self: center;
+            justify-self: start;
+        }
+    }
+
+
+}
