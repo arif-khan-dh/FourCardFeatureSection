@@ -35,7 +35,8 @@
         position: relative;
         width: toRem(318px);
         height: toRem(180px);
-        padding: 1rem;
+        //padding: 1rem;
+        padding: toRem(26px) toRem(28px);
         text-align: left;
         background-color: white;
         border-radius: toRem(5px);
@@ -44,11 +45,14 @@
 
         &__title {
             font-weight: 600;
+            color: $veryDarkBlue;
         }
 
 
         &__subtitle {
-            font-size: $font-xsm;
+            margin-top: toRem(8px);
+            font-size: $font-xxsm;
+            line-height: 1.5;
         }
 
 
